@@ -1,4 +1,3 @@
-import S from "./s";
 import React from "react";
 import NodeSvm from "svm";
 import MLModel from "./mlmodel";
@@ -80,7 +79,7 @@ export default class SVM extends MLModel {
 				"Ursprünglich beginnen wir mit einer linearen SVM - das bedeutet, dass unsere trennende Hyperebene, ähnlich wie das Perzeptron, mit geraden Linien als Grenzen \"operiert\". Offensichtlich ist dies etwas einschränkchränkend - wir können immer noch keine Kreise erkennen! Es ist jedoch nicht alles verloren - wir können einige hilfreiche Änderungen einführen.",
 				"Der Kernel-Trick (lässt es fast wie Magie klingen...) ist, wenn wir von einer primalen SVM-Formulierung zu einer dualen Formulierung übergehen. Abgesehen von komplizierter Mathematik bedeutet dies effektiv, dass Sie einen Testvektor mit ausgewählten Stützvektoren 'multiplizieren' und dann die Produkte kombinieren, um eine gute Vorhersage zu treffen. (Siehe Ressourcen für eine komplexe Definition)",
 				"Bei einer linearen SVM verwenden wir im Wesentlichen ein Skalarprodukt als 'Multiplikation' für das Dual. Wir könnten dies durch andere Formen von 'Multiplikations'-Methoden ersetzen, die als Kernel bezeichnet werden. Eine sehr beliebte Wahl ist der RBF-Kernel - die 'Multiplikationen' hängen letztendlich vom Nettoabstand zwischen den Testpunkten ab, so dass es im Grunde genommen so etwas wie KNN ist, aber viel stärker regularisiert.",
-				<img className = \"col-xs-10 col-xs-offset-1\" src = \"./build/img/svm_dual.png\"/>],
+				"<img className = \"col-xs-10 col-xs-offset-1\" src = \"./build/img/svm_dual.png\"/>"],
 			pros: ["Option zur Regularisierung - d.h. Reduzierung der Überanpassung durch Bevorzugung 'einfacherer' Modelle gegenüber komplexen. Versuchen Sie, C zu optimieren, um die Auswirkungen zu sehen!",
 				"Parametrisch (Lineare SVM): Das Modell bleibt unabhängig von der Größe des Datensatzes gleich groß"],
 			cons: ["Nicht-parametrisch (RBF-Kernel-SVM): Das Modell selbst kann mit wachsendem Datensatz komplizierter werden"],

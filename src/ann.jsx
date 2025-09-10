@@ -1,6 +1,5 @@
-import S from "./s";
-import React from "react";
 import { default as m } from "mathjs";
+import React from "react";
 import MLModel from "./mlmodel";
 
 const norm = 100;
@@ -242,7 +241,7 @@ export default class Ann extends MLModel {
 												Schichten hinzufügen
 						<button className = "flipped" onClick = {this.createDispatch("l+")}>+</button>
 						<button className = "flipped" onClick = {this.createDispatch("l-")}>-</button>
-					</div>););
+					</div>);
 					var annContainer = <div id = "ANN-panel">{layers}</div>;
 					return (
 						<div>

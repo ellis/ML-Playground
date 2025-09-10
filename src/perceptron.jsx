@@ -1,4 +1,3 @@
-import S from "./s";
 import React from "react";
 import MLModel from "./mlmodel";
 
@@ -95,7 +94,7 @@ export default class Perceptron extends MLModel {
 				"Es ist leicht, es als Linie zu visualisieren, wenn die Daten zweidimensional sind - wie in unserem Fall. In drei Dimensionen ist es eine Ebene. In vier Dimensionen ist es ein ganzer 3D-Raum - nicht mehr so einfach zu visualisieren.",
 				"Die Geschichte hinter dem Perzeptron ist ziemlich interessant. Bald nach seiner Erfindung durch Rosenblatt an der Cornell University im Jahr 1957 wurde es als das \"nächste große Ding\" hochgespielt - die New York Times berichtete zum Beispiel, dass das Perzeptron \"laufen, sprechen, sehen, schreiben, sich selbst reproduzieren und sich seiner Existenz bewusst sein können wird.\"", 
 				"Es wurde jedoch ziemlich schnell klar, dass es keine dieser Leistungen vollbringen konnte - es konnte nicht einmal einen Kreis erkennen, zum Beispiel (probieren Sie es aus!). Dies führte 1969 zu einem abrupten Ende der Perzeptron-Forschung - was wir heute als einen von mehreren \"KI-Wintern\" bezeichnen. Vielleicht dient dies als warnendes Beispiel für unser eigenes goldenes Zeitalter des maschinellen Lernens...", 
-				<img className = \"col-xs-10 col-xs-offset-1\" src = \"./build/img/percep_eqn.png\"/>],
+				"<img className = \"col-xs-10 col-xs-offset-1\" src = \"./build/img/percep_eqn.png\"/>"],
 			pros: ["Einfach zu implementieren", "Winziges, winziges Modell (läuft auf eine kleine Liste von Zahlen hinaus!)"],
 			cons: ["Setzt linear trennbare Daten voraus - schneidet sonst schlecht ab",
 				"Kann zu schlechten Anpassungen führen, wenn Punkte direkt am 'Rand' liegen"],
