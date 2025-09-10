@@ -99,7 +99,7 @@ export default class Knn extends MLModel{
 			cons: ["Wenn du viele Daten hast, kann es lange dauern, alle Nachbarn zu überprüfen.",
 				"Manchmal ist es schwer zu sagen, wer wirklich ein 'naher' Nachbar ist, besonders wenn es viele verschiedene Eigenschaften gibt."],
 			links: [
-				["https://de.wikipedia.org/wiki/K-Nächste-Nachbarn-Algorithmus", "Wikipedia: k-Nächste-Nachbarn-Algorithmus"],
+				["https://de.wikipedia.org/wiki/N%C3%A4chste-Nachbarn-Klassifikation", "Wikipedia: k-Nächste-Nachbarn-Algorithmus"],
 				["http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html", "SKlearn KNN-Klassifikator-Paket"],
 				["http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html", "SKlearn KNN-Regressor-Paket"],
 				["http://www.cs.cornell.edu/courses/cs4780/2017sp/lectures/lecturenote02_kNN.html", "KNN-Mathe-Notizen (Cornell CS 4780, Weinberger)"]

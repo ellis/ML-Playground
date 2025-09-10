@@ -184,9 +184,7 @@ export default class Tree extends MLModel {
 				"Kann nur senkrechte und waagerechte Linien ziehen, um Gruppen zu trennen."
 			],
 			links: [
-				["https://de.wikipedia.org/wiki/Entscheidungsbaum", "Wikipedia: Entscheidungsbaum"],
-				["https://de.wikipedia.org/wiki/Bootstrap-Aggregating", "Wikipedia: Bootstrap Aggregating (Bagging)"],
-				["http://xgboost.readthedocs.io/en/latest/model.html", "Einführung in Boosted Trees (XGBoost, eine beliebte Boosted Tree-Bibliothek)"]
+				["https://de.wikipedia.org/wiki/Entscheidungsbaum", "Wikipedia: Entscheidungsbaum"]
 			]
 		});
 	}

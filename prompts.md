@@ -37,11 +37,7 @@ Start the Playwright MCP server [here](http://localhost:8080), so we see the sam
 
 (For Gemini)
 
--   Look for these missing tranlsations: "the good" and "the bad" and "TL;DR" and "Learn more...".
+-   Look for these missing tranlsations: "the good" and "the bad" and "TL;DR" and "Learn more..." and "Parameters" and "Use Cases".
 -   In the long explanations of the various algorithms, please adapt the language and content to a 6th-grade level (and keep it German, of course)
-
----
-
--   Than automatic translation isn't working. Rather than translating based on browser, just hardcode the German. Also need to translate "Parameters" and "Use Cases".
-
--   Please check all of the links and whether they are still good. Remove outdated ones.
+-   Please check all of the links and whether they are still good. Remove outdated ones. See:
+    -   ann.jsx, knn.jsx, perceptron.jsx, svm.jsx, and tree.jsx.
