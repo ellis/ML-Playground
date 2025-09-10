@@ -25,6 +25,7 @@ Start the Playwright MCP server [here](http://localhost:8080), so we see the sam
     -   change the "Alles löschen" to the current "X" icon
     -   change the current "X" icon to an erase icon
     -   use emoji utf-8 icons
+-   Hide the navbar (with "Spielplatz für maschinelles Lernen") so that it doesn't take up any space, also shows no shadow
 
 ---
 

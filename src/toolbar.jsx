@@ -51,7 +51,7 @@ export default class Toolbar extends React.Component {
 				<button onClick={() => this.clearAll()} id="clearAll" title="Alles löschen">✕</button>
 				<div id="io">
 					<FileReaderInput as="text" id="data-file-input"
-						onChange={(a, b) => this.handleUpload(b)}>
+						onChange={(_, b) => this.handleUpload(b)}>
           				<button className="upload-btn" title="Daten hochladen">📤</button>
         			</FileReaderInput>
 					<button onClick={() => this.export()} className="download-btn" title="Daten speichern">📥</button>
