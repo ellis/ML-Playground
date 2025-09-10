@@ -26,6 +26,9 @@ Start the Playwright MCP server [here](http://localhost:8080), so we see the sam
     -   change the current "X" icon to an erase icon
     -   use emoji utf-8 icons
 -   Hide the navbar (with "Spielplatz für maschinelles Lernen") so that it doesn't take up any space, also shows no shadow
+-   The algorithm selector on the right with the five algorithms: ensure that it makes space for 3 columns on a normal desktop screen.
+
+-   the "Trainieren" button: make it wider so that the text doesn't extend beyond the right side of the button.
 
 ---
 
@@ -35,5 +38,5 @@ Start the Playwright MCP server [here](http://localhost:8080), so we see the sam
 
 (For Gemini)
 
--   I have a couple translation issues here. Look for the "the good" and "the bad" and "TL;DR".
+-   I have a couple translation issues here. Look for the "the good" and "the bad" and "TL;DR" and "Learn more...".
 -   In the long explanations of the various algorithms, please adapt the language and content to a 6th-grade level (and keep it German, of course)
