@@ -30,14 +30,12 @@ Start the Playwright MCP server [here](http://localhost:8080), so we see the sam
 -   the "Trainieren" button: make it wider so that the text doesn't extend beyond the right side of the button.
 -   Use `rem` or `em` for the font sizes instead of `vh`
 -   Make the font size for the explanatory text about 20% larger.
-
----
-
--   With the translation into German, a lot of the words have gotten longer and. So now the buttons and some of the other icons don't really look so nice. What would you suggest?
+-   The model selectors, e.g. for "Entschiedungsbaum": support autohyphenation
+-   Is the language of the HTML set to German?
 
 ---
 
 (For Gemini)
 
--   I have a couple translation issues here. Look for the "the good" and "the bad" and "TL;DR" and "Learn more...".
+-   Look for these missing tranlsations: "the good" and "the bad" and "TL;DR" and "Learn more...".
 -   In the long explanations of the various algorithms, please adapt the language and content to a 6th-grade level (and keep it German, of course)
