@@ -86,20 +86,20 @@ export default class Perceptron extends MLModel {
 	info(){
 		return this.generateInfo({
 			name: "Perzeptron",
-			tldr: "Eine Linie in den Sand zeichnen",
-			expl: <div>Erzeugt einen <b>flachen Raum, der die Daten sauber trennt</b>.</div>,
-			params: ["Max. Iterationen (\u2264 100): Maximale Anzahl von Aktualisierungen für das Training"],
-			usecase: ["Binäre Klassifizierung", "Regression"],
-			expl2: ["Einer der ältesten Algorithmen überhaupt - denn er ist sehr einfach. Mathematisch ausgedrückt, lösen wir einfach eine lineare Kombination der Eingaben (d.h. h = ax + by + cz..., wobei x, y, z Eingaben und a, b, c Konstanten sind), und verwenden dann diese Ausgabe h zur Vorhersage - positives h für Klasse A, negatives h für Klasse B. Intuitiv ausgedrückt, finden wir eine gerade Grenze, die die Daten exakt durchschneidet.",
-				"Es ist leicht, es als Linie zu visualisieren, wenn die Daten zweidimensional sind - wie in unserem Fall. In drei Dimensionen ist es eine Ebene. In vier Dimensionen ist es ein ganzer 3D-Raum - nicht mehr so einfach zu visualisieren.",
-				"Die Geschichte hinter dem Perzeptron ist ziemlich interessant. Bald nach seiner Erfindung durch Rosenblatt an der Cornell University im Jahr 1957 wurde es als das \"nächste große Ding\" hochgespielt - die New York Times berichtete zum Beispiel, dass das Perzeptron \"laufen, sprechen, sehen, schreiben, sich selbst reproduzieren und sich seiner Existenz bewusst sein können wird.\"", 
-				"Es wurde jedoch ziemlich schnell klar, dass es keine dieser Leistungen vollbringen konnte - es konnte nicht einmal einen Kreis erkennen, zum Beispiel (probieren Sie es aus!). Dies führte 1969 zu einem abrupten Ende der Perzeptron-Forschung - was wir heute als einen von mehreren \"KI-Wintern\" bezeichnen. Vielleicht dient dies als warnendes Beispiel für unser eigenes goldenes Zeitalter des maschinellen Lernens...", 
+			tldr: "Eine Linie ziehen, um Gruppen zu trennen.",
+			expl1: <div>Zieht eine <b>gerade Linie</b>, um die Datenpunkte in zwei Gruppen zu teilen.</div>,
+			params: ["Max. Runden (≤ 100): Wie oft der Computer versucht, die beste Linie zu finden."],
+			usecase: ["Zwei Gruppen trennen", "Vorhersagen, ob etwas zur einen oder anderen Gruppe gehört"],
+			expl2: ["Das ist einer der ältesten Tricks im Buch. Stell dir vor, du hast rote und blaue Punkte. Das Perzeptron versucht, eine gerade Linie zu finden, die alle roten von allen blauen Punkten trennt.",
+				"Auf einem Blatt Papier ist das eine Linie. In einem 3D-Raum wäre es eine flache Wand. In noch mehr Dimensionen wird es kompliziert, sich das vorzustellen.",
+				"Früher dachten die Leute, das Perzeptron sei ein Superhirn und könne alles lernen. Aber es hat sich herausgestellt, dass es nicht einmal einen Kreis von einem Viereck unterscheiden kann. Probier's mal aus!",
+				"Das zeigt uns, dass man nicht zu viel versprechen sollte, was eine neue Erfindung alles kann. Auch heute im Zeitalter der künstlichen Intelligenz ist das eine wichtige Lektion.",
 				"<img className = \"col-xs-10 col-xs-offset-1\" src = \"./build/img/percep_eqn.png\"/>"],
-			pros: ["Einfach zu implementieren", "Winziges, winziges Modell (läuft auf eine kleine Liste von Zahlen hinaus!)"],
-			cons: ["Setzt linear trennbare Daten voraus - schneidet sonst schlecht ab",
-				"Kann zu schlechten Anpassungen führen, wenn Punkte direkt am 'Rand' liegen"],
+			pros: ["Sehr einfach zu verstehen.", "Funktioniert super schnell."],
+			cons: ["Funktioniert nur, wenn man die Gruppen mit einer geraden Linie trennen kann.",
+				"Tut sich schwer, wenn die Punkte sehr nah an der Trennlinie liegen."],
 			links: [
-				["https://en.wikipedia.org/wiki/Perceptron", "Wikipedia: Perzeptron"],
+				["https://de.wikipedia.org/wiki/Perzeptron", "Wikipedia: Perzeptron"],
 				["http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html", "SKlearn Perzeptron-Paket"],
 				["http://www.cs.cornell.edu/courses/cs4780/2017sp/lectures/lecturenote03.html", "Perzeptron-Mathe-Notizen (Cornell CS 4780, Weinberger)"]
 			]

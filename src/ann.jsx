@@ -1,7 +1,7 @@
 import * as mathjs from "mathjs";
-const m = mathjs.create(mathjs.all);
 import React from "react";
 import MLModel from "./mlmodel";
+const m = mathjs.create(mathjs.all);
 
 const norm = 100;
 const MAX_PER_LAYER = 10;
@@ -260,30 +260,28 @@ export default class Ann extends MLModel {
 	info() {
 		return this.generateInfo({
 			name: "Künstliches neuronales Netz",
-			tldr: "Perzeptrone! Mehr Perzeptrone!",
-			expl1: "Verkette viele Perzeptrone in Schichten. Führe eine Vorwärtspropagierung durch, um eine Vorhersage zu treffen. Trainiere durch Backpropagation und Aktualisierung der Gewichte der Neuronen.",
-			params: ["Trainingsrate: Wie schnell das Netzwerk aus Fehlern lernt. Verringern, wenn das Netzwerk schlechte Ergebnisse liefert.",
-			"Max. Epochen: Anzahl der Trainingsrunden. Erhöhen, wenn die Ergebnisse schlecht sind.",
-			"Max. Fehler: prozentualer Fehler, der erreicht werden soll, bevor wir aufhören zu trainieren.",
-			"Schichten und Neuronen - halte es in einem vernünftigen Rahmen! Trainiere keine 1000 Schichten mit jeweils 1000 Neuronen - du wirst dir noch ein Auge ausschießen."],
-			usecase: ["Binäre Klassifizierung", "Mehrklassenklassifizierung", "Regression"],
-			expl2: ["Das Heißeste, was es gibt (Anmerkung: geschrieben 2017). Wer weiß, wie lange dieser Trend anhalten wird.",
-				"Die Grundvoraussetzung ist, dass man mehrere Schichten von Perzeptronen hat. Jede Schicht erhält eine Eingabe von der letzten, und jedes Neuron gibt eine Zahl aus - d.h. es 'feuert'. Wir wenden dann eine Aktivierungsfunktion auf diese 'gefeuerte' Ausgabe an, und dann gehen wir zur nächsten Schicht über.",
+			tldr: "Ein Gehirn für den Computer.",
+			expl1: "Stell dir vor, du baust ein Gehirn aus vielen kleinen Teilen, den Neuronen. Diese Neuronen sind in Schichten angeordnet. Das Gehirn lernt, indem es Informationen von einer Schicht zur nächsten weitergibt und dabei immer schlauer wird.",
+			params: ["Lernrate: Wie schnell das Gehirn lernt. Wenn es zu schnell lernt, macht es vielleicht Fehler. Wenn es zu langsam lernt, dauert es ewig.",
+			"Max. Runden: Wie oft das Gehirn übt. Mehr Übung kann helfen, besser zu werden.",
+			"Max. Fehler: Wie viele Fehler das Gehirn machen darf, bevor es mit dem Üben aufhört.",
+			"Schichten und Neuronen: Das sind die Bauteile des Gehirns. Zu viele davon können alles sehr kompliziert machen."],
+			usecase: ["Bilder erkennen", "Dinge in Gruppen einteilen", "Zahlen vorhersagen"],
+			expl2: ["Neuronale Netze sind wie ein Superhirn für Computer. Sie sind von unserem eigenen Gehirn inspiriert.",
+				"Das Gehirn besteht aus vielen Schichten von Neuronen. Jede Schicht bekommt Informationen von der vorherigen Schicht. Jedes Neuron 'feuert' dann ein Signal an die nächste Schicht. So wandert die Information durch das ganze Gehirn.",
 				<img className = "col-xs-10 col-xs-offset-1" src = "./build/img/ann_flow.png"/>,
-				"Die Aktivierungsfunktion ist hier entscheidend - wenn man die Ausgaben nicht durch eine Aktivierungsfunktion schickt, trainiert man effektiv ein einfaches Perzeptron. Mit anderen Worten, Aktivierungsfunktionen sind das, was neuronalen Netzen ihre Magie verleiht. In diesem Fall verwenden wir eine tanh-Aktivierungsfunktion, die die Ausgaben zwischen -1 und 1 skaliert - eine Vielzahl anderer wird verwendet, wie z. B. Rectified Linear Units (ReLU) und die logistische Funktion.",
-				"Eine weitere Schlüsselkomponente ist der Backpropagation-Algorithmus. Aufgrund der unkomplizierten Struktur des Netzwerks können wir mathematisch einen Weg finden, unser Netzwerk zu optimieren. Wir berechnen einen 'Gradienten', was die Berechnung von Ableitungen für jedes einzelne Neuron beinhaltet, und passen dann alle Gewichte entsprechend an. Wir passen die Gewichte an, indem wir von der letzten Schicht zur ersten zurückgehen - daher 'Backpropagation' der Gewichtsaktualisierungen.",
-				"Viele coolere Anwendungen von neuronalen Netzen drehen sich um die Verwendung komplexerer Formen als ein einfaches dichtes Netzwerk (wie hier vorgestellt).",
-				"Convolutional Networks (ConvNets) sind Experten für die Bildverarbeitung, da sie über das gesamte Bild 'falten', d.h. das Bild mit einem kleineren beweglichen Fenster abtasten.",
-				"Recurrent Neural Networks (RNNs) sind leistungsstark für die Datengenerierung, sowohl für Bilder als auch für Text, da sie die Fähigkeit haben, sich an Daten aus früheren Einträgen in einer Zeitreihe zu 'erinnern'."
+				"Damit das Gehirn wirklich schlau wird, braucht es 'Aktivierungsfunktionen'. Das sind kleine Schalter, die entscheiden, wie stark ein Neuron feuert. Ohne sie wäre das Gehirn nicht so klug.",
+				"Das Gehirn lernt, indem es 'Backpropagation' benutzt. Das bedeutet, es schaut sich seine Fehler an und passt dann die Verbindungen zwischen den Neuronen an, damit es beim nächsten Mal besser wird. Es lernt also aus seinen Fehlern, von hinten nach vorne.",
+				"Es gibt verschiedene Arten von Superhirnen. Manche sind super im Bilder erkennen (ConvNets), andere können sich Dinge merken und Texte schreiben (RNNs)."
 			],
-			pros: ["Universeller Approximator - jede kontinuierliche Funktion kann durch eine endliche Anzahl von Neuronen in einer Schicht angenähert werden. Keine Garantie für die Lernfähigkeit - d.h. es gibt eine gute Lösung, aber es liegt an Ihnen, sie zu finden. Irgendwie.",
-				"Wie bereits erwähnt, sehr effektiv bei bestimmten Problemen wie visuellen oder sprachlichen Problemen."
+			pros: ["Kann fast alles lernen, wenn man es richtig füttert.",
+				"Besonders gut für schwere Aufgaben wie das Verstehen von Bildern oder Sprache."
 			],
-			cons: ["Sperrig - das Training kann eine Weile dauern, und die Anzahl der Schichten, die heutzutage trainiert werden, ist irgendwie lächerlich",
-				"Geheimnisvoll - in gewisser Weise sind wir uns nicht ganz sicher, warum sie so effektiv sind. Fast wie Black Boxes. Leicht zu visualisieren, wenn man mit Bilddaten arbeitet, aber in höheren Dimensionen braucht es etwas Kreativität, um die Neuronen und Gewichte zu verstehen."
+			cons: ["Braucht viel Zeit und Geduld zum Trainieren.",
+				"Manchmal ist es schwer zu verstehen, wie das Gehirn genau zu seiner Entscheidung kommt. Es ist ein bisschen wie eine geheimnisvolle Black Box."
 			],
 			links: [
-				["https://en.wikipedia.org/wiki/Artificial_neural_network", "Wikipedia: Künstliches neuronales Netz"],
+				["https://de.wikipedia.org/wiki/Künstliches_neuronales_Netz", "Wikipedia: Künstliches neuronales Netz"],
 				["http://cs231n.github.io/optimization-2/", "Intuitionen zur Backpropagation (Stanford CS 231n, Karpathy)"],
 				["https://ujjwalkarn.me/2016/08/11/intuitive-explanation-convnets/", "Intuitive Erklärung von ConvNets (Karn)"],
 				["http://karpathy.github.io/2015/05/21/rnn-effectiveness/", "Die unzumutbare Wirksamkeit von rekurrenten neuronalen Netzen (Karpathy)"]

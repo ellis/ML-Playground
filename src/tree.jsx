@@ -1,6 +1,6 @@
-import S from "./s";
 import React from "react";
 import MLModel from "./mlmodel";
+import S from "./s";
 
 class Node {
 	// data: [[[x, y], [x, y]....], [1, 0, 0, 1, 1,...]]
@@ -164,29 +164,28 @@ export default class Tree extends MLModel {
 	info() {
 		return this.generateInfo({
 			name: "Entscheidungsbaum",
-			tldr: "Wenn Computer 21 Fragen spielen würden",
-			expl1: "Entwerfen Sie einen Baum, der versucht, Daten in Eimer zu legen, unter Verwendung bestimmter Schwellenwerte für Merkmale (d. H. Eingaben)",
-			params: ["Max. Tiefe (\u2264 100): Maximale Anzahl von Teilungen für den Baum"],
-			usecase: ["Binäre Klassifizierung", "Mehrklassenklassifizierung", "Regression"],
-			expl2: ["Im Grunde genommen Flussdiagramme. Sie beginnen am Wurzelknoten. Basierend auf dem Wert eines Merkmals (oder manchmal auch mehrerer) gehen wir zum linken oder rechten Kind des Baumes. Und so weiter, bis wir an einem Blattknoten ankommen, und dann treffen wir eine Vorhersage auf der Grundlage dieses Blattes.",
-				"Es ist einfach, einem Baum zu folgen, wenn man ihn einmal konstruiert hat - es ist eine sehr einfache Kette von 'Ja/Nein's und Wahr/Falsch. Der interessante Teil ist offensichtlich, den Baum zu erstellen.",
+			tldr: "Wie 'Wer bin ich?', nur für Daten.",
+			expl1: "Stellt eine Reihe von 'Ja' oder 'Nein' Fragen, um die Daten in die richtigen Schubladen zu sortieren.",
+			params: ["Max. Tiefe: Wie viele Fragen der Baum stellen darf."],
+			usecase: ["Dinge in Gruppen einteilen", "Vorhersagen treffen"],
+			expl2: ["Stell dir ein Flussdiagramm vor. Du startest oben und beantwortest eine Frage nach der anderen. Je nachdem, wie du antwortest, gehst du einen anderen Weg im Baum, bis du ganz unten ankommst und deine Antwort hast.",
+				"Einen fertigen Baum zu benutzen ist super einfach. Die eigentliche Arbeit ist, den Baum zu bauen und die richtigen Fragen zu finden.",
 				[<img className = "col-xs-12 col-md-6" src = "./build/img/tree_flow.png"/>,
 					<img className = "col-xs-12 col-md-6" src = "./build/img/tree_entropy.png"/>],
-				"Es gibt verschiedene Algorithmen zur Erstellung von Bäumen, aber im Allgemeinen arbeiten alle darauf hin, die Entropie zu minimieren. Nicht die physische Art, sondern die informationelle Art. Im Kontext eines Entscheidungsbaums und von Knoten ist die Entropie hoch, wenn die Punkte in einem 'Eimer' in Bezug auf ihre Bezeichnungen stark variieren. Wenn wir einen Baum haben, der die gleiche Anzahl von orangen und lila Punkten zusammenfasst, hat dieser Baum eine hohe Entropie und ist schlecht. Umgekehrt - wenn wir am Ende orangefarbene Punkte zusammenfassen und lila Punkte getrennt, dann ist die Entropie niedrig, und dies ist ein guter Baum.",
-				"Beliebte Techniken zur Verwendung von Bäumen sind Boosting und Bagging.",
-				"Boosting beinhaltet das Training einer großen Anzahl von Bäumen mit geringer Tiefe (d.h. hohem Bias), die knapp über dem Zufall vorhersagen - dann lassen Sie jeden kleinen Baum intelligent zu einer endgültigen, gewichteten Vorhersage beitragen. Dieser Ansatz senkt in erster Linie den Bias Ihres Modells.",
-				"Bagging beinhaltet das Resampling des Datensatzes - mit Ihren Trainingsdaten möchten wir einen neuen Trainingssatz erstellen, der sich nur geringfügig vom Original unterscheidet. Wir tun dies, indem wir zufällig einen von n Punkten im ursprünglichen Datensatz auswählen - und wir setzen dies so oft fort, wie wir benötigen, um unseren neuen 'Beutel' mit Trainingsdaten zu bilden. Beachten Sie, dass derselbe Datenpunkt mehr als einmal ausgewählt werden darf. Dieser Ansatz bekämpft die Varianz in Ihrem Modell und kann eine Überanpassung reduzieren.",
-				"Das Coole an Bagging und Boosting ist, dass Sie sich normalerweise keine Gedanken über Kompromisse machen müssen - Boosting reduziert den Bias, ohne zu stark zu überanpassen, und Bagging reduziert die Varianz/Überanpassung, ohne den Bias zu stark zu erhöhen. Bei vielen maschinellen Lernverfahren gibt es einen Kompromiss zwischen Bias und Varianz - daher macht diese Fähigkeit, einen zu verringern, ohne den anderen wesentlich zu beeinflussen, Bagging und Boosting so leistungsstark.",
-				"Beachten Sie, dass Bagging und Boosting allgemeine Ansätze sind, die nicht spezifisch für Bäume sein müssen - es ist nur so, dass Bäume häufiger mit ihnen in Verbindung gebracht werden. Sie könnten den Bias eines beliebigen Algorithmus durch Boosting reduzieren und seine Varianz durch Bagging."
+				"Der Baum versucht, die besten Fragen zu finden, um die Daten so gut wie möglich zu trennen. Er will 'saubere' Gruppen, in denen nur eine Farbe ist. Wenn eine Gruppe gemischt ist, ist das 'unordentlich' (hohe Entropie).",
+				"Es gibt coole Tricks, um Bäume noch besser zu machen, zum Beispiel 'Boosting' und 'Bagging'.",
+				"Boosting ist, als würde man viele kleine, nicht so schlaue Bäume trainieren und sie dann zusammenarbeiten lassen, um eine super Vorhersage zu treffen.",
+				"Bagging ist, als würde man viele verschiedene Trainings-Sets aus den Originaldaten erstellen und auf jedem einen Baum trainieren. Am Ende fragt man alle Bäume und nimmt die häufigste Antwort.",
+				"Das Tolle an diesen Tricks ist, dass sie die Bäume besser machen, ohne große Nachteile zu haben.",
 			],
-			pros: ["Sehr einfach zu implementieren und zu interpretieren"],
-			cons: ["Überanpassung, wenn die Baumtiefe zu hoch ist",
-				"Instabil - wenn sich die Daten geringfügig unterscheiden, kann der resultierende Baum drastisch anders aussehen, insbesondere wenn die Bäume eine geringe Tiefe haben.",
-				"Entscheidungsgrenzen sind orthogonal - kein Zeichnen von 'schrägen' Linien zur Trennung von Klassen"
+			pros: ["Leicht zu verstehen, wie der Baum zu seiner Entscheidung kommt."],
+			cons: ["Kann zu kompliziert werden, wenn der Baum zu viele Fragen stellt.",
+				"Ein kleiner Unterschied in den Daten kann einen komplett anderen Baum ergeben.",
+				"Kann nur senkrechte und waagerechte Linien ziehen, um Gruppen zu trennen."
 			],
 			links: [
-				["https://en.wikipedia.org/wiki/Decision_tree", "Wikipedia: Entscheidungsbaum"],
-				["https://en.wikipedia.org/wiki/Bootstrap_aggregating", "Wikipedia: Bootstrap Aggregating (Bagging)"],
+				["https://de.wikipedia.org/wiki/Entscheidungsbaum", "Wikipedia: Entscheidungsbaum"],
+				["https://de.wikipedia.org/wiki/Bootstrap-Aggregating", "Wikipedia: Bootstrap Aggregating (Bagging)"],
 				["http://xgboost.readthedocs.io/en/latest/model.html", "Einführung in Boosted Trees (XGBoost, eine beliebte Boosted Tree-Bibliothek)"]
 			]
 		});

@@ -58,21 +58,21 @@ export default class MLModel {
 	generateInfo({ name, tldr, expl1, params, usecase, expl2, pros, cons, links }) {
 		return (<div>
 			<h1>{name}</h1>
-			<h2>TL;DR - {tldr}</h2>
+			<h2>Kurz gesagt - {tldr}</h2>
 			{expl1}
-			<h2>Parameters</h2>
+			<h2>Parameter</h2>
 			{this.liGen(params)}
-			<h2>Use Cases:</h2>
+			<h2>Anwendungsfälle:</h2>
 			{this.liGen(usecase)}
 			<div className = "para">
 				{expl2.map((i, j)=><div className="col-xs-12" key = {j}>{i}</div>)}
 			</div>
-			<div className="good col-xs-12 col-md-6"><h2>The Good</h2>
+			<div className="good col-xs-12 col-md-6"><h2>Das Gute</h2>
 			{this.liGen(pros)}</div>
-			<div className="bad col-xs-12 col-md-6"><h2>The Bad</h2>
+			<div className="bad col-xs-12 col-md-6"><h2>Das Schlechte</h2>
 			{this.liGen(cons)}</div>
 			<div className="col-xs-12">
-				<h2>Learn more...</h2>
+				<h2>Mehr erfahren...</h2>
 				{this.linkGen(links)}
 			</div>
 		</div>);

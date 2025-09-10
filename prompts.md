@@ -39,3 +39,9 @@ Start the Playwright MCP server [here](http://localhost:8080), so we see the sam
 
 -   Look for these missing tranlsations: "the good" and "the bad" and "TL;DR" and "Learn more...".
 -   In the long explanations of the various algorithms, please adapt the language and content to a 6th-grade level (and keep it German, of course)
+
+---
+
+-   Than automatic translation isn't working. Rather than translating based on browser, just hardcode the German. Also need to translate "Parameters" and "Use Cases".
+
+-   Please check all of the links and whether they are still good. Remove outdated ones.
