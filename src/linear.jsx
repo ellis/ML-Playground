@@ -1,6 +1,7 @@
 import S from "./s";
 import React from "react";
-import math from "mathjs";
+import * as mathjs from "mathjs";
+const math = mathjs.create(mathjs.all);
 import MLModel from "./mlmodel";
 
 export default class Linear extends MLModel {

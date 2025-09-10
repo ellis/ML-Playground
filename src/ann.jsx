@@ -1,4 +1,5 @@
-import { default as m } from "mathjs";
+import * as mathjs from "mathjs";
+const m = mathjs.create(mathjs.all);
 import React from "react";
 import MLModel from "./mlmodel";
 

@@ -39,3 +39,6 @@ jspm_packages
 *.eslintrc.json
 *.sublime-project
 *.sublime-workspace
+
+# Screenshots by the Playwright MCP server
+.playwright-mcp/*.png
