@@ -29,6 +29,7 @@ Start the Playwright MCP server [here](http://localhost:8080), so we see the sam
 -   The algorithm selector on the right with the five algorithms: ensure that it makes space for 3 columns on a normal desktop screen.
 -   the "Trainieren" button: make it wider so that the text doesn't extend beyond the right side of the button.
 -   Use `rem` or `em` for the font sizes instead of `vh`
+-   Make the font size for the explanatory text about 20% larger.
 
 ---
 
