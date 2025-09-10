@@ -1,0 +1,6 @@
+onlyBuiltDependencies:
+  - cwebp-bin
+  - gifsicle
+  - mozjpeg
+  - optipng-bin
+  - pngquant-bin
