@@ -239,17 +239,17 @@ export default class Ann extends MLModel {
 						<button></button>
 					</div>);
 					layers.push(<div key = {self.layers.length} className = "layer">
-						Add Layers
+												Schichten hinzufügen
 						<button className = "flipped" onClick = {this.createDispatch("l+")}>+</button>
 						<button className = "flipped" onClick = {this.createDispatch("l-")}>-</button>
-					</div>);
+					</div>););
 					var annContainer = <div id = "ANN-panel">{layers}</div>;
 					return (
 						<div>
-							Learning rate: <input type = "text" value = {this.state.alpha} onChange = {(e)=>this.dispatch("a", e.target.value)}/>
-							Max Epochs: <input type = "text" value = {this.state.maxEpochs} onChange = {(e)=>this.dispatch("epoch", e.target.value)}/><br/>
-							Max error %: <input type = "text" value = {this.state.maxError} onChange = {(e)=>this.dispatch("error", e.target.value)}/><br/>
-							Click on neurons to remove<br/>
+							Lernrate: <input type = "text" value = {this.state.alpha} onChange = {(e)=>this.dispatch("a", e.target.value)}/>
+							Max. Epochen: <input type = "text" value = {this.state.maxEpochs} onChange = {(e)=>this.dispatch("epoch", e.target.value)}/><br/>
+							Max. Fehler %: <input type = "text" value = {this.state.maxError} onChange = {(e)=>this.dispatch("error", e.target.value)}/><br/>
+							Klicke auf Neuronen, um sie zu entfernen<br/>
 							{annContainer}
 						</div>
 					);
@@ -259,34 +259,34 @@ export default class Ann extends MLModel {
 	}
 	info() {
 		return this.generateInfo({
-			name: "Artificial Neural Network",
-			tldr: "Perceptrons! More Perceptrons!",
-			expl1: "Chain a lot of perceptrons together, in layers. Forward-propogate to solve for a prediction. Train by using backpropogation and updating weights of the neurons.",
-			params: ["Training rate: how fast the network learns from mistakes. Decrease if the network is coming up with poor results.",
-			"Max Epochs: Rounds of training to go through. Increase if results are poor.",
-			"Max Error: percentage error to reach before we stop trying.",
-			"Layers and neurons - just keep it reasonable! Don't train a 1000 layers each with 1000 neurons - you'll shoot your eye out."],
-			usecase: ["Binary Classification", "Multi-class Classification", "Regression"],
-			expl2: ["The hottest thing out there (note: written in 2017). Who knows how long this trend will go on for.",
-				"The basic premise is that you have multiple layers of perceptrons. Each layer takes in input from the last, and each neuron outputs one number - ie. 'fires'. We then apply some activation function to this 'fired' output, and then we move onto the next layer.",
+			name: "Künstliches neuronales Netz",
+			tldr: "Perzeptrone! Mehr Perzeptrone!",
+			expl1: "Verkette viele Perzeptrone in Schichten. Führe eine Vorwärtspropagierung durch, um eine Vorhersage zu treffen. Trainiere durch Backpropagation und Aktualisierung der Gewichte der Neuronen.",
+			params: ["Trainingsrate: Wie schnell das Netzwerk aus Fehlern lernt. Verringern, wenn das Netzwerk schlechte Ergebnisse liefert.",
+			"Max. Epochen: Anzahl der Trainingsrunden. Erhöhen, wenn die Ergebnisse schlecht sind.",
+			"Max. Fehler: prozentualer Fehler, der erreicht werden soll, bevor wir aufhören zu trainieren.",
+			"Schichten und Neuronen - halte es in einem vernünftigen Rahmen! Trainiere keine 1000 Schichten mit jeweils 1000 Neuronen - du wirst dir noch ein Auge ausschießen."],
+			usecase: ["Binäre Klassifizierung", "Mehrklassenklassifizierung", "Regression"],
+			expl2: ["Das Heißeste, was es gibt (Anmerkung: geschrieben 2017). Wer weiß, wie lange dieser Trend anhalten wird.",
+				"Die Grundvoraussetzung ist, dass man mehrere Schichten von Perzeptronen hat. Jede Schicht erhält eine Eingabe von der letzten, und jedes Neuron gibt eine Zahl aus - d.h. es 'feuert'. Wir wenden dann eine Aktivierungsfunktion auf diese 'gefeuerte' Ausgabe an, und dann gehen wir zur nächsten Schicht über.",
 				<img className = "col-xs-10 col-xs-offset-1" src = "./build/img/ann_flow.png"/>,
-				"The activation function is crucial in this - if you didn't push outputs through an activation function, you're effectively training a simple perceptron. In other words, activation functions are what gives Neural Networks their magic. In this case, we use a tanh activation function that scales outputs between -1 to 1 - a variety of others are used, such as Rectified Linear Units (ReLU) and the logistic function.",
-				"Another key component is the backpropogation algorithm. Because of the network's straightforward structure, we can mathematically find a way to optimize our network. We calculate a 'gradient', which involves calculating derivatives for each individual neuron, and then adjusting all the weights accordingly. We adjust the weights by going back from the last layer to the first - hence 'back propogation' of weight updates.",
-				"A lot of cooler applications of Neural Networks revolve around using more complex forms than a simple Dense network (as presented here).",
-				"Convolutional Networks (ConvNets) are experts at image processing, as they 'Convolve' across the whole image, ie. scan the image with a smaller moving window.",
-				"Recurrent Neural Networks (RNNs) are powerful for data generation, both for images and text, because of their power to 'remember' data from previous entries in a time series."
+				"Die Aktivierungsfunktion ist hier entscheidend - wenn man die Ausgaben nicht durch eine Aktivierungsfunktion schickt, trainiert man effektiv ein einfaches Perzeptron. Mit anderen Worten, Aktivierungsfunktionen sind das, was neuronalen Netzen ihre Magie verleiht. In diesem Fall verwenden wir eine tanh-Aktivierungsfunktion, die die Ausgaben zwischen -1 und 1 skaliert - eine Vielzahl anderer wird verwendet, wie z. B. Rectified Linear Units (ReLU) und die logistische Funktion.",
+				"Eine weitere Schlüsselkomponente ist der Backpropagation-Algorithmus. Aufgrund der unkomplizierten Struktur des Netzwerks können wir mathematisch einen Weg finden, unser Netzwerk zu optimieren. Wir berechnen einen 'Gradienten', was die Berechnung von Ableitungen für jedes einzelne Neuron beinhaltet, und passen dann alle Gewichte entsprechend an. Wir passen die Gewichte an, indem wir von der letzten Schicht zur ersten zurückgehen - daher 'Backpropagation' der Gewichtsaktualisierungen.",
+				"Viele coolere Anwendungen von neuronalen Netzen drehen sich um die Verwendung komplexerer Formen als ein einfaches dichtes Netzwerk (wie hier vorgestellt).",
+				"Convolutional Networks (ConvNets) sind Experten für die Bildverarbeitung, da sie über das gesamte Bild 'falten', d.h. das Bild mit einem kleineren beweglichen Fenster abtasten.",
+				"Recurrent Neural Networks (RNNs) sind leistungsstark für die Datengenerierung, sowohl für Bilder als auch für Text, da sie die Fähigkeit haben, sich an Daten aus früheren Einträgen in einer Zeitreihe zu 'erinnern'."
 			],
-			pros: ["Universal Approximator - any continuous function can be approximated by a finite amount of neurons in one layer. No guarantees about learnability though - ie. there's a good fit out there, but it's kinda on you to find it. Somehow.",
-				"As stated, very effective at certain problems such as visual or linguistic problems."
+			pros: ["Universeller Approximator - jede kontinuierliche Funktion kann durch eine endliche Anzahl von Neuronen in einer Schicht angenähert werden. Keine Garantie für die Lernfähigkeit - d.h. es gibt eine gute Lösung, aber es liegt an Ihnen, sie zu finden. Irgendwie.",
+				"Wie bereits erwähnt, sehr effektiv bei bestimmten Problemen wie visuellen oder sprachlichen Problemen."
 			],
-			cons: ["Bulky - training can take a bit of time, and the number of layers people are training these days are sort of ridiculous",
-				"Mysterious - in some ways, we're not entirely sure why they're so effective. Kind of like black boxes almost. Easy to visualize if you're working with image data, but on higher dimensions it takes some creativity to understand the neurons and weights."
+			cons: ["Sperrig - das Training kann eine Weile dauern, und die Anzahl der Schichten, die heutzutage trainiert werden, ist irgendwie lächerlich",
+				"Geheimnisvoll - in gewisser Weise sind wir uns nicht ganz sicher, warum sie so effektiv sind. Fast wie Black Boxes. Leicht zu visualisieren, wenn man mit Bilddaten arbeitet, aber in höheren Dimensionen braucht es etwas Kreativität, um die Neuronen und Gewichte zu verstehen."
 			],
 			links: [
-				["https://en.wikipedia.org/wiki/Artificial_neural_network", "Wikipedia: Artificial neural network"],
-				["http://cs231n.github.io/optimization-2/", "Intuitions on backpropogation (Stanford CS 231n, Karpathy)"],
-				["https://ujjwalkarn.me/2016/08/11/intuitive-explanation-convnets/", "Intuitive explanation of ConvNets (Karn)"],
-				["http://karpathy.github.io/2015/05/21/rnn-effectiveness/", "The Unreasonable Effectiveness of Recurrent Neural Networks (Karpathy)"]
+				["https://en.wikipedia.org/wiki/Artificial_neural_network", "Wikipedia: Künstliches neuronales Netz"],
+				["http://cs231n.github.io/optimization-2/", "Intuitionen zur Backpropagation (Stanford CS 231n, Karpathy)"],
+				["https://ujjwalkarn.me/2016/08/11/intuitive-explanation-convnets/", "Intuitive Erklärung von ConvNets (Karn)"],
+				["http://karpathy.github.io/2015/05/21/rnn-effectiveness/", "Die unzumutbare Wirksamkeit von rekurrenten neuronalen Netzen (Karpathy)"]
 			]
 		});
 	}

@@ -22,44 +22,44 @@ const store = new Store();
 canvas.linkToStore(store);
 
 const steps = [{
-	title: "Populate the Canvas",
-	text: "Click to add data points",
+	title: "Fülle die Leinwand",
+	text: "Klicke, um Datenpunkte hinzuzufügen",
 	selector: "#canvas",
 	position: "right ",
 	isFixed: false
 }, {
-	title: "Select Data type",
-	text: "You get two colors, or classes, to chose from. Select x to begin Eraser Mode.",
+	title: "Wähle den Datentyp",
+	text: "Du kannst aus zwei Farben oder Klassen wählen. Wähle x, um den Radiergummi-Modus zu starten.",
 	selector: "#brushes > div",
 	position: "bottom",
 	isFixed: false
 }, {
-	title: "Select Model",
-	text: "Swap between different models. Try them all out! Your data and predictions don't change until you retrain.",
+	title: "Wähle das Modell",
+	text: "Wechsle zwischen verschiedenen Modellen. Probiere sie alle aus! Deine Daten und Vorhersagen ändern sich nicht, bis du neu trainierst.",
 	selector: "#model-selector",
 	position: "right",
 	isFixed: false
 }, {
-	title: "Tune parameters",
-	text: "You can change some settings of each model.",
+	title: "Parameter anpassen",
+	text: "Du kannst einige Einstellungen für jedes Modell ändern.",
 	selector: "#parameters",
 	position: "left",
 	isFixed: false
 }, {
-	title: "Train and fire!",
-	text: "Click to train your model! Note that some models can take time to train (sometimes up to 10-20 seconds). If the button remains black, chances are it's still training.",
+	title: "Trainieren und los!",
+	text: "Klicke, um dein Modell zu trainieren! Beachte, dass das Training einiger Modelle einige Zeit in Anspruch nehmen kann (manchmal bis zu 10-20 Sekunden). Wenn die Schaltfläche schwarz bleibt, wird wahrscheinlich noch trainiert.",
 	selector: "#trainAndDisplay",
 	position: "left",
 	isFixed: false
 }, {
-	title: "Read and learn",
-	text: "Contains details about how the algorithm is run. Try and follow the guides to test effectiveness of certain models on certain datasets.",
+	title: "Lesen und lernen",
+	text: "Enthält Details zur Ausführung des Algorithmus. Versuche, den Anleitungen zu folgen, um die Wirksamkeit bestimmter Modelle für bestimmte Datensätze zu testen.",
 	selector: "#infoPanel",
 	position: "top",
 	isFixed: false
 }, {
-	title: "That's all!",
-	text: "Have fun! Leave some feedback if you thought this was cool.",
+	title: "Das ist alles!",
+	text: "Viel Spaß! Hinterlasse ein Feedback, wenn du das cool fandest.",
 	selector: "#feedback",
 	position: "top",
 	isFixed: true

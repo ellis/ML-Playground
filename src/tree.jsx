@@ -155,7 +155,7 @@ export default class Tree extends MLModel {
 				}
 				render() {
 					return (<div>
-							Max Tree Depth: <input type = "text" value = {this.state.maxDepth} onChange = {(e)=>this.onChangeDepth(e)}/>
+							Max. Baumtiefe: <input type = "text" value = {this.state.maxDepth} onChange = {(e)=>this.onChangeDepth(e)}/>
 						</div>);
 				}
 			}
@@ -163,31 +163,31 @@ export default class Tree extends MLModel {
 	}
 	info() {
 		return this.generateInfo({
-			name: "Decision Tree",
-			tldr: "If computers played 21 questions",
-			expl1: "Design a tree that tries to put data into buckets, using certain thresholds on features (ie inputs)",
-			params: ["Max depth (\u2264 100): Maximum number of splits for the tree"],
-			usecase: ["Binary Classification", "Multi-class Classification", "Regression"],
-			expl2: ["Basically flowcharts. You begin at the root node. Based on the value of one feature (or sometimes more), we go to the left or right child of the tree. Et cetera, until we arrive at a leaf node, and then we make a prediction based on that leaf.",
-				"It's easy to follow a tree once you've constructed one - it's a very simple chain of 'yes/no's and true/falses. The interesting part is obviously making the tree.",
+			name: "Entscheidungsbaum",
+			tldr: "Wenn Computer 21 Fragen spielen würden",
+			expl1: "Entwerfen Sie einen Baum, der versucht, Daten in Eimer zu legen, unter Verwendung bestimmter Schwellenwerte für Merkmale (d. H. Eingaben)",
+			params: ["Max. Tiefe (\u2264 100): Maximale Anzahl von Teilungen für den Baum"],
+			usecase: ["Binäre Klassifizierung", "Mehrklassenklassifizierung", "Regression"],
+			expl2: ["Im Grunde genommen Flussdiagramme. Sie beginnen am Wurzelknoten. Basierend auf dem Wert eines Merkmals (oder manchmal auch mehrerer) gehen wir zum linken oder rechten Kind des Baumes. Und so weiter, bis wir an einem Blattknoten ankommen, und dann treffen wir eine Vorhersage auf der Grundlage dieses Blattes.",
+				"Es ist einfach, einem Baum zu folgen, wenn man ihn einmal konstruiert hat - es ist eine sehr einfache Kette von 'Ja/Nein's und Wahr/Falsch. Der interessante Teil ist offensichtlich, den Baum zu erstellen.",
 				[<img className = "col-xs-12 col-md-6" src = "./build/img/tree_flow.png"/>,
 					<img className = "col-xs-12 col-md-6" src = "./build/img/tree_entropy.png"/>],
-				"There are various algorithms for making trees out there, but in general all work towards minimizing entropy. Not the physical kind, but the Informational kind. In the context of a decision tree and nodes, entropy is high when points in a 'bucket' vary a lot in terms of their labels. If we have a tree that buckets equal numbers of orange and purple points together, this tree has high entropy and is bad. Vice versa - if we end up bucketing orange points together, and purple points separately, then there is low entropy, and this is a good tree.",
-				"Popular techniques for using trees involves Boosting and Bagging.",
-				"Boosting involves training a large number of low-depth (ie high bias) trees that predict just above random chance - then, you intelligently let each small tree contribute towards a final, weighted prediction. This approach primarily lowers the bias of your model.",
-				"Bagging involves resampling the dataset - with your training data, we want to generate a new training set that's just a bit different from the original. We do this by randomly picking one out of n points in the original dataset - and we continue this for as many times as we need to form our new 'bag' of training data. Keep in mind the same datapoint is allowed to be picked more than once. This approach tackles variance in your model, and can reduce overfitting.",
-				"The cool thing about bagging and boosting is that you usually don't have to worry about tradeoffs - boosting reduces bias without overfitting too much, and bagging reduces variance/overfitting without increasing bias too much. For a lot of machine learning, there's a tradeoff between bias and variance - so this ability to decrease one without significantly affecting the other makes bagging and boosting so powerful.",
-				"Note that bagging and boosting are general approaches that don't have to be specific to trees - it's just that trees are more commonly associated with them. You could reduce bias of any algorithm by boosting, and reduce its variance by bagging."
+				"Es gibt verschiedene Algorithmen zur Erstellung von Bäumen, aber im Allgemeinen arbeiten alle darauf hin, die Entropie zu minimieren. Nicht die physische Art, sondern die informationelle Art. Im Kontext eines Entscheidungsbaums und von Knoten ist die Entropie hoch, wenn die Punkte in einem 'Eimer' in Bezug auf ihre Bezeichnungen stark variieren. Wenn wir einen Baum haben, der die gleiche Anzahl von orangen und lila Punkten zusammenfasst, hat dieser Baum eine hohe Entropie und ist schlecht. Umgekehrt - wenn wir am Ende orangefarbene Punkte zusammenfassen und lila Punkte getrennt, dann ist die Entropie niedrig, und dies ist ein guter Baum.",
+				"Beliebte Techniken zur Verwendung von Bäumen sind Boosting und Bagging.",
+				"Boosting beinhaltet das Training einer großen Anzahl von Bäumen mit geringer Tiefe (d.h. hohem Bias), die knapp über dem Zufall vorhersagen - dann lassen Sie jeden kleinen Baum intelligent zu einer endgültigen, gewichteten Vorhersage beitragen. Dieser Ansatz senkt in erster Linie den Bias Ihres Modells.",
+				"Bagging beinhaltet das Resampling des Datensatzes - mit Ihren Trainingsdaten möchten wir einen neuen Trainingssatz erstellen, der sich nur geringfügig vom Original unterscheidet. Wir tun dies, indem wir zufällig einen von n Punkten im ursprünglichen Datensatz auswählen - und wir setzen dies so oft fort, wie wir benötigen, um unseren neuen 'Beutel' mit Trainingsdaten zu bilden. Beachten Sie, dass derselbe Datenpunkt mehr als einmal ausgewählt werden darf. Dieser Ansatz bekämpft die Varianz in Ihrem Modell und kann eine Überanpassung reduzieren.",
+				"Das Coole an Bagging und Boosting ist, dass Sie sich normalerweise keine Gedanken über Kompromisse machen müssen - Boosting reduziert den Bias, ohne zu stark zu überanpassen, und Bagging reduziert die Varianz/Überanpassung, ohne den Bias zu stark zu erhöhen. Bei vielen maschinellen Lernverfahren gibt es einen Kompromiss zwischen Bias und Varianz - daher macht diese Fähigkeit, einen zu verringern, ohne den anderen wesentlich zu beeinflussen, Bagging und Boosting so leistungsstark.",
+				"Beachten Sie, dass Bagging und Boosting allgemeine Ansätze sind, die nicht spezifisch für Bäume sein müssen - es ist nur so, dass Bäume häufiger mit ihnen in Verbindung gebracht werden. Sie könnten den Bias eines beliebigen Algorithmus durch Boosting reduzieren und seine Varianz durch Bagging."
 			],
-			pros: ["Very easy to implement and interpret"],
-			cons: ["Overfits if tree depth is too high",
-				"Instable - if data differs by a little bit, the resulting tree can look drastically different, especially if trees have low depth.",
-				"Decision boundaries are orthogonal - no drawing 'slanted' lines to separate classes"
+			pros: ["Sehr einfach zu implementieren und zu interpretieren"],
+			cons: ["Überanpassung, wenn die Baumtiefe zu hoch ist",
+				"Instabil - wenn sich die Daten geringfügig unterscheiden, kann der resultierende Baum drastisch anders aussehen, insbesondere wenn die Bäume eine geringe Tiefe haben.",
+				"Entscheidungsgrenzen sind orthogonal - kein Zeichnen von 'schrägen' Linien zur Trennung von Klassen"
 			],
 			links: [
-				["https://en.wikipedia.org/wiki/Decision_tree", "Wikipedia: Decision Tree"],
+				["https://en.wikipedia.org/wiki/Decision_tree", "Wikipedia: Entscheidungsbaum"],
 				["https://en.wikipedia.org/wiki/Bootstrap_aggregating", "Wikipedia: Bootstrap Aggregating (Bagging)"],
-				["http://xgboost.readthedocs.io/en/latest/model.html", "Introduction to Boosted Trees (XGBoost, a popular Boosted Tree library)"]
+				["http://xgboost.readthedocs.io/en/latest/model.html", "Einführung in Boosted Trees (XGBoost, eine beliebte Boosted Tree-Bibliothek)"]
 			]
 		});
 	}

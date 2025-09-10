@@ -87,23 +87,22 @@ export default class Knn extends MLModel{
 	}
 	info(){
 		return this.generateInfo({
-			name: "K Nearest Neighbors",
-			tldr: "Birds of a feather flock together",
-			expl1: <div>Picks the <b>k closest points from training data</b>, then decides prediction via popular vote.</div>,
-			params: ["k (\u2265 1): number of closest neighbors to select"],
-			usecase: ["Binary Classification", "Multi-class Classification", "Regression"],
-			expl2: ["A simple and straightforward algorithm. The underlying assumption is that datapoints close to each other share the same label.",
-				"Analogy: if I hang out with CS majors, then I'm probably also a CS major (or that one Philosophy major who's minoring in everything.)",
-				"Note that distance can be defined different ways, such as Manhattan (sum of all features, or inputs), Euclidean (geometric distance), p-norm distance...typically Euclidean is used (like in this demo), but Manhattan can be faster and thus preferable."],
-			pros: ["Simple to implement"],
-			cons: ["Non-Parametric - size of model grows as training data grows. It could take a long time to compute distances for billions of datapoints.",
-				"Curse of Dimensionality - as number of features increase (ie. more dimensions), the average distance between randomly distributed \
-				points converge to a fixed value. This means that most points end up equidistant to each other - so distance becomes less meaningful as a metric"],
+			name: "K Nächste Nachbarn",
+			tldr: "Gleich und gleich gesellt sich gern",
+			expl1: <div>Wählt die <b>k nächstgelegenen Punkte aus den Trainingsdaten</b> aus und entscheidet dann die Vorhersage per Mehrheitsentscheid.</div>,
+			params: ["k (≥ 1): Anzahl der zu wählenden nächsten Nachbarn"],
+			usecase: ["Binäre Klassifizierung", "Mehrklassenklassifizierung", "Regression"],
+			expl2: ["Ein einfacher und unkomplizierter Algorithmus. Die zugrunde liegende Annahme ist, dass Datenpunkte, die nahe beieinander liegen, dieselbe Bezeichnung haben.",
+				"Analogie: Wenn ich mit Informatik-Studenten abhänge, bin ich wahrscheinlich auch ein Informatik-Student (oder der eine Philosophie-Student, der alles im Nebenfach belegt).",
+				"Beachten Sie, dass die Entfernung auf unterschiedliche Weise definiert werden kann, z. B. Manhattan (Summe aller Merkmale oder Eingaben), Euklidisch (geometrische Entfernung), p-Norm-Entfernung ... typischerweise wird Euklidisch verwendet (wie in dieser Demo), aber Manhattan kann schneller und daher vorzuziehen sein."],
+			pros: ["Einfach zu implementieren"],
+			cons: ["Nicht-parametrisch - die Größe des Modells wächst mit den Trainingsdaten. Es kann lange dauern, die Entfernungen für Milliarden von Datenpunkten zu berechnen.",
+				"Fluch der Dimensionalität - wenn die Anzahl der Merkmale zunimmt (d. h. mehr Dimensionen), konvergiert der durchschnittliche Abstand zwischen zufällig verteilten Punkten gegen einen festen Wert. Dies bedeutet, dass die meisten Punkte am Ende den gleichen Abstand voneinander haben - so wird die Entfernung als Metrik weniger aussagekräftig"],
 			links: [
-				["https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm", "Wikipedia: k-nearest neighbors algorithm"],
-				["http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html", "SKlearn KNN classifier package"],
-				["http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html", "SKlearn KNN regressor package"],
-				["http://www.cs.cornell.edu/courses/cs4780/2017sp/lectures/lecturenote02_kNN.html", "KNN math notes (Cornell CS 4780, Weinberger)"]
+				["https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm", "Wikipedia: k-Nächste-Nachbarn-Algorithmus"],
+				["http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html", "SKlearn KNN-Klassifikator-Paket"],
+				["http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html", "SKlearn KNN-Regressor-Paket"],
+				["http://www.cs.cornell.edu/courses/cs4780/2017sp/lectures/lecturenote02_kNN.html", "KNN-Mathe-Notizen (Cornell CS 4780, Weinberger)"]
 			]
 		});
 	}

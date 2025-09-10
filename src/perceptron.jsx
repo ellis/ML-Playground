@@ -77,7 +77,7 @@ export default class Perceptron extends MLModel {
 				render(){
 					return(
 						<div>
-							Max Iters: <input type = "text" value = {this.state.maxIters} onChange = {this.onChange}/>
+							Max. Iterationen: <input type = "text" value = {this.state.maxIters} onChange = {this.onChange}/>
 						</div>
 					);
 				}
@@ -86,23 +86,23 @@ export default class Perceptron extends MLModel {
 	}
 	info(){
 		return this.generateInfo({
-			name: "Perceptron",
-			tldr: "Drawing a line in the sand",
-			expl: <div>Comes up with a <b>flat space that cleanly separates the data</b>.</div>,
-			params: ["Max Iters (\u2264 100): Maximum number of updates for training"],
-			usecase: ["Binary Classification", "Regression"],
-			expl2: ["One of the oldest algorithms out there - cause it's a very simple one. In mathematical terms, we simply solve for a linear combination of the inputs (ie. h = ax + by + cz..., where x, y, z are inputs and a, b, c are constants), then use this output h to predict - positive h for Class A , negative h for Class B. In an intuitive sense, we're finding a straight boundary that exactly cuts through the data.",
-				"It's easy to visualize it as a line if the data is two-dimensional - as in our case. In three dimensions, it's a plane. In four dimensions, it's an entire 3d space - not so easy to visualize anymore.",
-				"The history behind the perceptron is quite an interesting one. Soon after its invention by Rosenblatt at Cornell in 1957, it was hyped up to be the \"next big thing\" - the New York Times, for example, reported that the perceptron \"will be able to walk, talk, see, write, reproduce itself and be conscious of its existence.\"", 
-				"However, it became rather clear that it could achieve non of these feats - it couldn't even recognize a circle, for example (try it!). This led to an abrupt end in perceptron research in 1969 - what we now call one of several \"AI winters\". Perhaps this serves as a cautionary tale for our own golden age of Machine Learning...", 
-				<img className = "col-xs-10 col-xs-offset-1" src = "./build/img/percep_eqn.png"/>],
-			pros: ["Simple to implement", "Tiny, tiny model (boils down to small list of numbers!)"],
-			cons: ["Assumes linearly separable data - does poorly otherwise",
-				"Can end up with bad fits with points right on the 'edge'"],
+			name: "Perzeptron",
+			tldr: "Eine Linie in den Sand zeichnen",
+			expl: <div>Erzeugt einen <b>flachen Raum, der die Daten sauber trennt</b>.</div>,
+			params: ["Max. Iterationen (\u2264 100): Maximale Anzahl von Aktualisierungen für das Training"],
+			usecase: ["Binäre Klassifizierung", "Regression"],
+			expl2: ["Einer der ältesten Algorithmen überhaupt - denn er ist sehr einfach. Mathematisch ausgedrückt, lösen wir einfach eine lineare Kombination der Eingaben (d.h. h = ax + by + cz..., wobei x, y, z Eingaben und a, b, c Konstanten sind), und verwenden dann diese Ausgabe h zur Vorhersage - positives h für Klasse A, negatives h für Klasse B. Intuitiv ausgedrückt, finden wir eine gerade Grenze, die die Daten exakt durchschneidet.",
+				"Es ist leicht, es als Linie zu visualisieren, wenn die Daten zweidimensional sind - wie in unserem Fall. In drei Dimensionen ist es eine Ebene. In vier Dimensionen ist es ein ganzer 3D-Raum - nicht mehr so einfach zu visualisieren.",
+				"Die Geschichte hinter dem Perzeptron ist ziemlich interessant. Bald nach seiner Erfindung durch Rosenblatt an der Cornell University im Jahr 1957 wurde es als das \"nächste große Ding\" hochgespielt - die New York Times berichtete zum Beispiel, dass das Perzeptron \"laufen, sprechen, sehen, schreiben, sich selbst reproduzieren und sich seiner Existenz bewusst sein können wird.\"", 
+				"Es wurde jedoch ziemlich schnell klar, dass es keine dieser Leistungen vollbringen konnte - es konnte nicht einmal einen Kreis erkennen, zum Beispiel (probieren Sie es aus!). Dies führte 1969 zu einem abrupten Ende der Perzeptron-Forschung - was wir heute als einen von mehreren \"KI-Wintern\" bezeichnen. Vielleicht dient dies als warnendes Beispiel für unser eigenes goldenes Zeitalter des maschinellen Lernens...", 
+				<img className = \"col-xs-10 col-xs-offset-1\" src = \"./build/img/percep_eqn.png\"/>],
+			pros: ["Einfach zu implementieren", "Winziges, winziges Modell (läuft auf eine kleine Liste von Zahlen hinaus!)"],
+			cons: ["Setzt linear trennbare Daten voraus - schneidet sonst schlecht ab",
+				"Kann zu schlechten Anpassungen führen, wenn Punkte direkt am 'Rand' liegen"],
 			links: [
-				["https://en.wikipedia.org/wiki/Perceptron", "Wikipedia: Perceptron"],
-				["http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html", "SKlearn perceptron package"],
-				["http://www.cs.cornell.edu/courses/cs4780/2017sp/lectures/lecturenote03.html", "Perceptron math notes (Cornell CS 4780, Weinberger)"]
+				["https://en.wikipedia.org/wiki/Perceptron", "Wikipedia: Perzeptron"],
+				["http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html", "SKlearn Perzeptron-Paket"],
+				["http://www.cs.cornell.edu/courses/cs4780/2017sp/lectures/lecturenote03.html", "Perzeptron-Mathe-Notizen (Cornell CS 4780, Weinberger)"]
 			]
 		});
 	}
