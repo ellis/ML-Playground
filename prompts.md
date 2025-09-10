@@ -17,3 +17,22 @@ Start the Playwright MCP server [here](http://localhost:8080), so we see the sam
 -   Remove the dialog boxes that pop up initially with a walkthrough (steps 1 thru 7).
 
 ---
+
+-   Move the buttons for the two colors and the X into a `div` that is above the drawing area. To the right of the X you can put the button for Deleta All, Upload, and Download. They should all be in one row. If they need the space, they can extend past the drawing area further to the right.
+-   button changes:
+    -   change "Daten hochladen" to an upload icon
+    -   change "Daten speichern" to a download icon
+    -   change the "Alles löschen" to the current "X" icon
+    -   change the current "X" icon to an erase icon
+    -   use emoji utf-8 icons
+
+---
+
+-   With the translation into German, a lot of the words have gotten longer and. So now the buttons and some of the other icons don't really look so nice. What would you suggest?
+
+---
+
+(For Gemini)
+
+-   I have a couple translation issues here. Look for the "the good" and "the bad" and "TL;DR".
+-   In the long explanations of the various algorithms, please adapt the language and content to a 6th-grade level (and keep it German, of course)

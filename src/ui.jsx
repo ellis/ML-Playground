@@ -10,8 +10,6 @@ import Perceptron from "./perceptron";
 import SVM from "./svm";
 import Ann from "./ann";
 import Tree from "./tree";
-import FileSaver from "file-saver";
-import FileReaderInput from 'react-file-reader-input';
 
 const modelList = [new Knn(), new Perceptron(), new SVM(), new Ann(), new Tree()];
 const modelUiList = modelList.map(function (model) {
@@ -22,20 +20,12 @@ export default class UI extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			brushSelected: S.class1,
 			modelSelected: S.model[0],
 			modelUi: modelUiList[0]
 		};
-		this.handleChange = this.handleChange.bind(this);
 	}
 	componentDidMount() {
 		this.changeModel(this.state.modelSelected);
-	}
-	handleChange(e) {
-		this.setState({
-			brushSelected: e.target.value
-		});
-		this.props.setClass(e.target.value);
 	}
 	changeModel(target) {
 		var i = S.model.indexOf(target);
@@ -51,39 +41,9 @@ export default class UI extends React.Component {
 	train() {
 		this.props.train();
 	}
-	clearAll() {
-		this.props.clearAll();
-	}
-	export() {
-		console.log(this)
-		var blob = new Blob([this.props.store.exportJSONString()], {type: "text/plain;charset=utf-8"});
-		FileSaver.saveAs(blob, "data.json");
-	}
-	handleUpload(result){
-		this.props.store.importJSONString(result[0][0].target.result);
-		this.props.repaint();
-	}
 	render() {
 		return (
 			<div>
-				<div id="io">
-					<FileReaderInput as="text" id="data-file-input"
-						onChange={(a, b) => this.handleUpload(b)}>
-          				<button>Daten hochladen</button>
-        			</FileReaderInput>
-					<button onClick={() => this.export()}>Daten speichern</button>
-				</div>
-				<div id="brushes">
-					{[S.class1, S.class2, S.eraser].map((i) => {
-						return (
-							<div key={i}>
-								<input id={"br-" + i} value={i} type="radio" checked={this.state.brushSelected == i} onChange={this.handleChange} />
-								<label htmlFor={"br-" + i}></label>
-							</div>
-						);
-					})}
-					<button onClick={() => this.clearAll()} id="clearAll">Alles löschen</button>
-				</div>
 
 				<div id="model-selector">
 					<a href="#"><div className={this.state.modelSelected == S.model[0]} onClick={() => this.changeModel(S.model[0])}><img src="./build/img/knn.png" /> <h4>K Nächste Nachbarn</h4> </div></a>

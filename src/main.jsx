@@ -6,6 +6,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import UI from "./ui";
+import Toolbar from "./toolbar";
 
 import Store from "./store";
 import Canvas from "./canvas";
@@ -30,12 +31,17 @@ var renderInfo = (info) => {
 
 
 ReactDOM.render(
-	<UI setClass = {(brush) => {canvas.setBrush(brush);}}
-		train = {() => {canvas.trainAndClassif();}}
+	<Toolbar setClass = {(brush) => {canvas.setBrush(brush);}}
 		store = {store}
-		renderInfo = {renderInfo}
 		repaint = {()=>{canvas.clearCtx();canvas.drawStoreTr()}}
 		clearAll = {()=>{canvas.clearAll()}} />,
+	document.getElementById("toolbar-container")
+);
+
+ReactDOM.render(
+	<UI train = {() => {canvas.trainAndClassif();}}
+		store = {store}
+		renderInfo = {renderInfo} />,
 	document.getElementById("options")
 );
 

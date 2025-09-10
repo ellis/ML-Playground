@@ -95,7 +95,7 @@ input[type=text] {
 canvas {
 	display: inline;
 	box-sizing: border-box;
-	margin-top: 3vh; //width: 400px;
+	margin-top: 1vh; //width: 400px;
 	width: 100%;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
 	//width: 100%;
@@ -103,49 +103,69 @@ canvas {
 	max-width: 70vh;
 }
 
-#io{
-	div{
-		display: inline-block
+#controls-toolbar {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1vh;
+	padding: 0.5vh 0;
+	
+	#brushes {
+		display: inline-flex;
+		align-items: center;
+		margin-right: 1vh;
 	}
-	button{
-		font-size: 1.6vh;
+	
+	#clearAll {
+		width: 4vh;
 		height: 4vh;
 		box-sizing: border-box;
-		width: 14vh;
-		background: linear-gradient(to right, black 50%, white 50%);
-		background-position: right bottom;
-		margin-right: 2vh;
-		background-size: 200% 100%;
-		border: 0;
+		font-size: 2.5vh;
+		line-height: 1;
+		padding: 0;
+		background: white;
+		border: .2vh solid #BBB;
 		border-radius: 4px;
-		box-shadow: 0 0 10px 0 rgba(0, 0, 0, .4);
-		padding: 1.2vh;
+		margin-right: 1vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		&:hover {
-			background-position: left bottom;
-			color: white;
+			border: .2vh solid #333;
+			background: #f5f5f5;
+		}
+	}
+	
+	#io {
+		display: inline-flex;
+		align-items: center;
+		gap: 1vh;
+		
+		div{
+			display: inline-block
+		}
+		button{
+			font-size: 2vh;
+			height: 4vh;
+			box-sizing: border-box;
+			width: 4vh;
+			background: white;
+			border: .2vh solid #BBB;
+			border-radius: 4px;
+			padding: 0;
+			margin-right: 0.5vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			&:hover {
+				border: .2vh solid #333;
+				background: #f5f5f5;
+			}
 		}
 	}
 }
 
 #brushes {
 	font-size: 2vh;
-	#clearAll{
-		font-size: 1.6vh;
-		height: 4vh;
-		box-sizing: border-box;
-		width: 10vh;
-		background: linear-gradient(to right, black 50%, white 50%);
-		background-position: right bottom;
-		background-size: 200% 100%;
-		border: 0;
-		border-radius: 4px;
-		box-shadow: 0 0 10px 0 rgba(0, 0, 0, .4);
-		padding: 1.2vh;
-		&:hover {
-			background-position: left bottom;
-			color: white;
-		}
-	}
 	div {
 		display: inline-block;
 		vertical-align: middle;
@@ -183,8 +203,15 @@ canvas {
 			}
 		}
 		#br--1~label {
-			background: url("x.png") no-repeat center center;
-			background-size: cover;
+			position: relative;
+			&:after {
+				content: "🧹";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				font-size: 2vh;
+			}
 		}
 		input:checked~label {
 			border: .4vh solid #000; //box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
